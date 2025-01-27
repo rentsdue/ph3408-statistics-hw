@@ -41,7 +41,7 @@ with open(filename, 'r') as csvfile:
 # = 5. Run the same calculations with n = 10, 100, 1,000, and 10,000 as well. Plot the
 # PDF of the sampled mean for each n.
 
-# Snatch random values to plot onto a new PDF
+# Snatch random values to plot onto a new PDF (numSamples - number of random samples from the data, numTrials - number of times iterated)
 def extractMean(numSamples, numTrials):
 
     # List of means
@@ -77,7 +77,7 @@ meanValues = extractMean(noOfSamples, noOfTrials)
 # do you get? How do you interpret the result?
 
 noTrials = 500
-sampleSizes = range(1, noTrials) 
+sampleSizes = range(1, 10001) 
 stdList = []
 
 for num in sampleSizes:
