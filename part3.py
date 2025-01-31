@@ -47,7 +47,7 @@ def extractMean(numSamples, numTrials):
     return means
 
 noTrials = 10
-sampleSizes = [1, 10, 50, 100, 500, 1000, 5000, 10000]
+sampleSizes = [1, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
 
 
 stdList = []
