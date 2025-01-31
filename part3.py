@@ -6,6 +6,7 @@ import csv
 import numpy as np
 import random
 import matplotlib.pyplot as plt
+import time
 
 # Extract CSV file name
 filename = "CLT_data.csv"
@@ -45,8 +46,10 @@ def extractMean(numSamples, numTrials):
         means.append(mean)
     return means
 
-noTrials = 500
-sampleSizes = range(1, 10001) 
+noTrials = 10
+sampleSizes = [1, 10, 50, 100, 500, 1000, 5000, 10000]
+
+
 stdList = []
 
 for num in sampleSizes:
@@ -54,6 +57,7 @@ for num in sampleSizes:
     stdDev = np.std(meanList)
     stdList.append(stdDev)
 
+start_time = time.time()
 plt.plot(sampleSizes, stdList, label="Standard Deviation of Sampled Means")
 plt.title("Standard Deviation vs Sample Size")
 plt.xlabel("Sample Size")
@@ -61,3 +65,5 @@ plt.ylabel("Standard Deviation")
 plt.grid()
 plt.legend()
 plt.show()
+end_time = time.time()
+print(f"Plot loaded in {end_time - start_time} seconds.")

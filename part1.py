@@ -1,4 +1,5 @@
 import csv
+import time
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -28,6 +29,7 @@ std_dev = np.std(values)
 print(f"Standard Deviation: {std_dev}")
 
 # Plot probability density graph
+start_time = time.time()
 plt.hist(values, 200, (0, 12), density=True, label="Probability Density of Data")
 plt.title("Probability Density Graph of CSV File Data")
 plt.xlabel("Data Values")
@@ -36,4 +38,5 @@ plt.text(0.1, 0.9, f"Standard Deviation: {std_dev:.2f}", transform=plt.gca().tra
 plt.grid()
 plt.legend()
 plt.show()
-
+end_time = time.time()
+print(f"Plot loaded in {end_time - start_time} seconds.")
