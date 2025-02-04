@@ -4,12 +4,13 @@
 # and Delbrück plot the data and compare it to the theoretical prediction in their original paper.
 # In your opinion, does the experimental data follow the expected distribution?
 import csv
+import numpy as np
 
 # Extract CSV file name
 filename1 = 'LDexpt22.csv'
 
 # Creating a list of values
-values = []
+values1 = []
 
 # Reading through the CSV file
 with open(filename1, 'r') as csvfile:
@@ -21,7 +22,7 @@ with open(filename1, 'r') as csvfile:
     
     # Extracting and flattening each data row one by one, converting to float
     for row in csvreader:
-        values.extend(float(value) for value in row)
+        values1.extend(float(value) for value in row)
     
 # Mean is the lambda parameter of the Poisson Distribution
-mean = np.ave
+mean = np.mean(values1)
