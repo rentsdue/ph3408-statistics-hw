@@ -19,7 +19,7 @@ print(averageList)
 # Variance per sample:
 varianceList = []
 for array in experimentalData:
-    var = float(np.var(array))
+    var = float(np.var(array, ddof=1))
     varianceList.append(var)
 
 print(varianceList)
@@ -35,17 +35,17 @@ for i in range(0, len(averageList)):
 
 print(avgPerCulture)
 
-# Calculated ratio between SD/Average - expected values
+# Calculated ratio between SD/Average - experimental values
 standardDevList = []
 
 for var in varianceList:
     std = float(np.sqrt(var))
     standardDevList.append(std)
 
-expectedRatioList = []
+experimentalRatioList = []
 
 for i in range(0, len(standardDevList)):
     expRatio = standardDevList[i] / averageList[i]
-    expectedRatioList.append(expRatio)
+    experimentalRatioList.append(expRatio)
 
-print(expectedRatioList)
+print(experimentalRatioList)
