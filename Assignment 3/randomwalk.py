@@ -27,7 +27,7 @@ def randomWalker(finalPositions, steps):
 
 # Time frames for histogram
 stepList = [100, 500, 1000]
-msdValues = None  # Store MSD for 1000 steps
+msdValues = None  # Store MSD for 1000 steps 
 
 # Run simulations and plot histograms
 for step in stepList:
