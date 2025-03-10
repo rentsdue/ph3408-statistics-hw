@@ -60,14 +60,30 @@ for step in stepList:
     end_time = time.time()
     print(f"Plot loaded in {end_time - start_time:.2f} seconds.")
 
-# Plot MSD for 1000 steps
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import linregress
+
+# Example: Plot MSD for 1000 steps
 if msdValues is not None:
     plt.figure(figsize=(8, 5))
-    plt.plot(range(len(msdValues)), msdValues, label="Simulated MSD", color="blue")
 
-    # Expected MSD relation (MSD ≈ steps)
-    t_values = np.arange(0, steps + 1)
-    plt.plot(t_values, t_values, 'k--', label="Theoretical MSD (MSD = steps)")
+    # Prepare x and y data
+    x = np.arange(len(msdValues))  # Time steps
+    y = np.array(msdValues)        # MSD values
+
+    # Perform linear regression and find r-squared
+    slope, intercept, r_value, _, _ = linregress(x, y)
+    r_squared = r_value**2  
+
+    # Generate fitted line
+    fit_line = slope * x + intercept
+
+    # Plot the simulated MSD data
+    plt.plot(x, y, label="Simulated MSD", color="blue")
+
+    # Plot the linear fit
+    plt.plot(x, fit_line, 'r--', label=f"Linear Fit: y = {slope:.3f}x + {intercept:.3f}, $R^2$ = {r_squared:.3f}")
 
     # Labels and title
     plt.xlabel("Time Steps")
