@@ -41,9 +41,10 @@ for _ in range(noOfTrials):
     countsTest.append(count_inside)
 
 # Compute and print mean and standard deviation
+theoreticalMean = (exampleA **2 * N) / (squareLength ** 2)
 average = np.mean(countsTest)
 standardDev = np.std(countsTest)
-print(f"For a={exampleA}, c={exampleC}: Mean = {average:.3f}, Standard Deviation = {standardDev:.3f}")
+print(f"For a={exampleA}, c={exampleC}: Theoretical mean = {theoreticalMean:.3f}, Actual Mean = {average:.3f}, Standard Deviation = {standardDev:.3f}")
 
 
 # Part (2d)
